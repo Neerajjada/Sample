@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git branch: 'main', url: 'https://github.com/asquarezone/spring-petclinic.git'
+            }
+        }
+        stage('compile') {
+            steps {
+                // compile using maven
+                bat '''mvn compile
+'''
+            }
+        }
+        stage('package') {
+            steps {
+                // echo 'package'
+                bat '''mvn clean package -DskipTests'''
+            }
+        }
+        stage('archiove') {
+            steps {
+                // echo 'Artifact'
+                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+            }
+        }
+    }
+}
