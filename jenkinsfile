@@ -19,6 +19,7 @@ pipeline {
             steps {
                 // echo 'package'
                 bat '''mvn clean package -DskipTests'''
+code changes
             }
         }
         stage('archiove') {
