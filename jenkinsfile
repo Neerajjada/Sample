@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 // Get some code from a GitHub repository
-                git branch: 'main', url: 'https://github.com/asquarezone/spring-petclinic.git'
+                git branch: 'main', url: 'https://github.com/Neerajjada/Sample.git'
             }
         }
         stage('compile') {
