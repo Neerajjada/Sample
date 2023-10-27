@@ -21,7 +21,7 @@ pipeline {
                 bat '''mvn clean package -DskipTests'''
             }
         }
-        stage('archiove') {
+        stage('archive') {
             steps {
                 // echo 'Artifact'
                 archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
